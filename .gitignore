@@ -3,3 +3,5 @@ doc/*
 *.gem
 .bundle
 .yardoc/*
+out.png
+Gemfile.lock
