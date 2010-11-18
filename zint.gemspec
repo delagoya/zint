@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = []
   s.email       = []
   s.homepage    = "http://rubygems.org/gems/zint"
-  s.summary     = "TODO: Write a gem summary"
-  s.description = "TODO: Write a gem description"
+  s.summary     = "Ruby FFI wrapper on Zint barcode library"
+  s.description = "Ruby FFI wrapper on Zint barcode library"
 
   s.required_rubygems_version = ">= 1.3.7"
   s.rubyforge_project         = "zint"
