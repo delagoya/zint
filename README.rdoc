@@ -2,7 +2,8 @@
 
 -----------
 
-This is a Ruby FFI wrapper for the Zint barcode generation library (http://www.zint.org.uk/zintSite). You must have Zint installed on your system for this gem to work at all. 
+This is a Ruby FFI wrapper for the Zint barcode generation library (http://www.zint.org.uk/zintSite). You must have Zint installed on your system for this gem to work at all. Note that this is an alpha release and just gets the essentials done. fork the code and add tests of more barcode coverage.
+
 
 == Install
 
