@@ -30,7 +30,7 @@ module Zint
     
     def encode!
       err = Zint::Wrapper.zint_encode(@zint_symbol, @value, 0)
-      if err.to_i > 0
+      if Zint::ERR[:err]
         raise Zint::Exception.new(@zint_symbol[:errtxt])
       end
     end
@@ -38,16 +38,18 @@ module Zint
     def print!
       encode!
       err = Zint::Wrapper.zint_print(@zint_symbol, 0)
-      if err.to_i > 0
+      if Zint::ERR[:err]
         raise Zint::Exception.new(@zint_symbol[:errtxt])
-      end
+      end        
     end
     
     def buffer!
       tmp = File.join(Dir.tmpdir, "out.#{@format}")
       @zint_symbol[:outfile] = tmp
       print!
-      File.read(tmp)
+      tmp = File.read(tmp)
+      File.unlink(tmp)
+      return tmp
     end
   end
 end

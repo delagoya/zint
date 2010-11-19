@@ -106,14 +106,14 @@ module Zint
 
 
   # error codes
-  WARN_INVALID_OPTION    = 2
-  ERROR_TOO_LONG         = 5
-  ERROR_INVALID_DATA     = 6
-  ERROR_INVALID_CHECK    = 7
-  ERROR_INVALID_OPTION   = 8
-  ERROR_ENCODING_PROBLEM = 9
-  ERROR_FILE_ACCESS      = 10
-  ERROR_MEMORY           = 11
+  WARN = {:warn_invalid_option =>  2 }
+  ERR = {:error_too_long         =>  5 ,
+         :error_invalid_data     =>  6 ,
+         :error_invalid_check    =>  7 ,
+         :error_invalid_option   =>  8 ,
+         :error_encoding_problem =>  9 ,
+         :error_file_access      =>  10,
+         :error_memory           =>  11}
   
   # This is the FFI wrapper on the Zint C library. You should not use 
   # this directly. Instead refer to Zint::Barcode and its decendents  

@@ -20,10 +20,10 @@ class ZintTest < Test::Unit::TestCase
     should "assign the barcode's value on create" do 
       assert_equal("http://rubygems.org/gems/zint", @bc.value)
     end
-
+    
     should "encode the proper value into the C zint_symbol struct" do 
       @bc.encode!
-      assert_equal(@bc.value, @bc.zint_symbol[:text], "ERRRR #{@bc.zint_symbol[:text]}")
+      assert_equal(@bc.value, @bc.zint_symbol[:text].to_s, "ERRRR #{@bc.zint_symbol[:text]}")
     end
 
     # should probably define a new context for encoding tests against the fixtures
