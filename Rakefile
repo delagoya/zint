@@ -12,5 +12,4 @@ end
 
 YARD::Rake::YardocTask.new do |t|
   t.files   = ['lib/**/*.rb', "README.rdoc"]   # optional
-  t.options = ['--any', '--extra', '--opts'] # optional
 end

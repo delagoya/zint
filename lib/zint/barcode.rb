@@ -6,7 +6,7 @@ module Zint
     # The type of barcode generated (e.g. UPC, QRCode, Data Matrix)
     attr_accessor :bctype
     # The output file path
-    attr_accessor :path
+    attr_reader :path
     # Access for the underlying FFI ManagedStruct of the Zint C struct 
     attr_reader :zint_symbol
     
@@ -23,6 +23,13 @@ module Zint
         @path = File.join(Dir.pwd,  "out.png")
         @zint_symbol[:outfile]= @path
       end
+    end
+    
+    def path=(fspath)
+      @path = fspath
+      @zint_symbol[:outfile] = @path
+      @encoded = false
+      return @path
     end
     
     def encode!

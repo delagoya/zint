@@ -19,20 +19,28 @@ Summary
   # Create a code-128 barcode
   bc = Zint::Barcode.new("test")
   bc.print! # file is now on relative path "out.png"
-  bc.outfile = "my_bc.png"
+  bc.path = "my_bc.png"
   bc.print! # file is now on relative path "my_bc.png"
-  bc.outfile = "my_bc.svg"
+  bc.path = "my_bc.svg"
+  bc.print!
   bc.print! # file is now on relative path "my_bc.svg"
   
   # create a qrcode
   qrcode = Zint::Barcode.new("test", Zint::BARCODE_QRCODE)
-  qrcode.outfile = "qrcode.png"
+  qrcode.path = "qrcode.png"
   qrcode.print! # file is now on relative path "qrcode.png"
   qrcode_string = qrcode.buffer!
   puts qrcode_string
   
   #QRCode with more options, specifically set a high error correction capacity
   qrcode = Zint::QRCode.new("test", Zint::QRCode::ECC_H)
+  qrcode.path = "qrcode.ecc_h.png"
+  qrcode.print! # file is now on relative path "qrcode.ecc_h.png"
+  # encode barcode as text
+  qrcode.path = "qrcode.ecc_h.txt"
+  puts qrcode.buffer!
+  
+  
   
   
 TODO: Add more documentation
