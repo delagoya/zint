@@ -25,12 +25,14 @@ Summary
   bc.print! # file is now on relative path "my_bc.svg"
   
   # create a qrcode
-  qrcode = Zint::Barcode.new("test", Zint::BARCODE_QRCODE, :outfile => "qr.png")
-  qrcode.print! # file is now on relative path "my_bc.svg"
+  qrcode = Zint::Barcode.new("test", Zint::BARCODE_QRCODE)
+  qrcode.outfile = "qrcode.png"
+  qrcode.print! # file is now on relative path "qrcode.png"
   qrcode_string = qrcode.buffer!
   puts qrcode_string
   
   #QRCode with more options, specifically set a high error correction capacity
-  qrcode = Zint::QRCode.new("test", Zint::QRCODE::ECC_H)
+  qrcode = Zint::QRCode.new("test", Zint::QRCode::ECC_H)
+  
   
 TODO: Add more documentation
