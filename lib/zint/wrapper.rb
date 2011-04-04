@@ -1,5 +1,5 @@
-module Zint  
-  
+module Zint
+
   # Symbologies
   BARCODE_CODE11          = 1
   BARCODE_C25MATRIX       = 2
@@ -85,14 +85,14 @@ module Zint
   BARCODE_CHANNEL         = 140
   BARCODE_CODEONE         = 141
   BARCODE_GRIDMATRIX      = 142
-    
+
   # barcode output options
   BARCODE_NO_ASCII    = 1
   BARCODE_BIND        = 2
   BARCODE_BOX         = 4
-  
-  # Even thought this an option, it foobar's 
-  # Ruby's $stdout handle. Don't use it. 
+
+  # Even thought this an option, it foobar's
+  # Ruby's $stdout handle. Don't use it.
   # BARCODE_STDOUT      = 8
   BARCODE_READER_INIT = 16
 
@@ -114,12 +114,12 @@ module Zint
          :error_encoding_problem =>  9 ,
          :error_file_access      =>  10,
          :error_memory           =>  11}
-  
-  # This is the FFI wrapper on the Zint C library. You should not use 
-  # this directly. Instead refer to Zint::Barcode and its decendents  
+
+  # This is the FFI wrapper on the Zint C library. You should not use
+  # this directly. Instead refer to Zint::Barcode and its decendents
   module Wrapper
     extend FFI::Library
-    ffi_lib "libzint"
+    ffi_lib "zint"
 
     #error codes
     enum :err, [:warn_invalid_option, 2,
@@ -141,19 +141,19 @@ module Zint
     attach_function(:zint_create, :ZBarcode_Create, [], :zint_symbol)
     attach_function(:zint_clear, :ZBarcode_Clear, [:zint_symbol], :void)
     attach_function(:zint_delete, :ZBarcode_Delete, [:zint_symbol], :void)
-    attach_function(:zint_encode, :ZBarcode_Encode, 
-                    [:zint_symbol, :input, :string_max_length], 
+    attach_function(:zint_encode, :ZBarcode_Encode,
+                    [:zint_symbol, :input, :string_max_length],
                     :err)
-    attach_function(:zint_print, :ZBarcode_Print, 
-                    [:zint_symbol, :rotate_angle], 
+    attach_function(:zint_print, :ZBarcode_Print,
+                    [:zint_symbol, :rotate_angle],
                     :err)
-    attach_function(:zint_encode_and_print, :ZBarcode_Encode_and_Print, 
-                    [:zint_symbol, :input, :string_max_length, 
+    attach_function(:zint_encode_and_print, :ZBarcode_Encode_and_Print,
+                    [:zint_symbol, :input, :string_max_length,
                     :rotate_angle], :err)
 
     def self.create(bctype=BARCODE_CODE128)
       bc = Zint::ZintSymbol.new(self.zint_create())
-      bc[:symbology] = bctype 
+      bc[:symbology] = bctype
       return bc
     end
   end
