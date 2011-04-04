@@ -1,0 +1,1 @@
+v0.0.2 - fixed windows support by using ffi_lib "zint" instead of "libzint"
