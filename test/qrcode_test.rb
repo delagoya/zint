@@ -41,6 +41,7 @@ class QRCodeTest < Test::Unit::TestCase
     end      
   end
 
+  ## TO-DO: Figure out why this does not work. 
   # context "QRCode High ECC" do 
   #   setup do 
   #     @bc = Zint::QRCode.new("http://rubygems.org/gems/zint", Zint::QRCode::ECC_H, :path => 'qrh.png')
