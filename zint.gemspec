@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.7"
   s.rubyforge_project         = "zint"
 
-  s.add_dependency("ffi", "~> 0.6")
+  s.add_dependency("ffi", "~> 1.2")
   
   s.add_development_dependency "bundler", "~> 1.0"
   s.add_development_dependency "shoulda", "~> 2.11"

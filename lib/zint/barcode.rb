@@ -10,13 +10,16 @@ module Zint
     # Access for the underlying FFI ManagedStruct of the Zint C struct 
     attr_reader :zint_symbol
     
-    def initialize(value, bctype=Zint::BARCODE_CODE128, &options)
-      options ||={}
+    def initialize(value, bctype=Zint::BARCODE_CODE128, *options)
+      if options.kind_of? Array
+        options = options.shift
+      end
+      options ||= {}
       @zint_symbol = Zint::Wrapper.create(bctype)
       @bctype = bctype
       @value = value
       @encoded = false
-      if options[:path] 
+      if options[:path]
         @path = options[:path]
         @zint_symbol[:outfile]= @path
       else

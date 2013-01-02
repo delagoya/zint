@@ -3,30 +3,30 @@ module Zint
   # You should not use this directly, use the Zint::Barcode or
   # its decendents instead.
   class ZintSymbol < FFI::ManagedStruct
-    layout :symbology, :int32, 
-           :height, :int32,
-           :whitespace_width , :int32,
-           :border_width     , :int32,
-           :output_options   , :int32,
+    layout :symbology, :int, 
+           :height, :int,
+           :whitespace_width , :int,
+           :border_width     , :int,
+           :output_options   , :int,
            :fgcolour, [:char, 10],
            :bgcolour, [:char, 10],
            :outfile, [:char, 256],
            :scale, :float, 
-           :option_1, :int32,
-           :option_2, :int32,
-           :option_3, :int32,
-           :show_hrt, :int32,
-           :input_mode, :int32,
+           :option_1, :int,
+           :option_2, :int,
+           :option_3, :int,
+           :show_hrt, :int,
+           :input_mode, :int,
            :text, [:uchar, 128],
-           :rows, :int32,
-           :width, :int32,
+           :rows, :int,
+           :width, :int,
            :primary, [:char, 128],  	
            :encoded_data , [:uchar, 178*143],
-           :row_height, [:int32, 178],
+           :row_height, [:int, 178],
            :errtxt, [:char, 100],
            :bitmap, :pointer,
-           :bitmap_width, :int32,
-           :bitmap_height, :int32
+           :bitmap_width, :int,
+           :bitmap_height, :int
   	
   	# release method required for FFI managed structs
   	def self.release ptr

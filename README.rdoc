@@ -1,13 +1,23 @@
+
 = Zint 
 
 -----------
 
-This is a Ruby FFI wrapper for the Zint barcode generation library (http://www.zint.org.uk/zintSite). You must have Zint installed on your system for this gem to work at all. Note that this is an alpha release and just gets the essentials done. fork the code and add tests of more barcode coverage.
+This is a Ruby FFI wrapper for the Zint barcode generation library (http://zint.github.com). 
+
+<b> You must have Zint installed on your system for this gem to work at all.</b>
+
+Note that this is an alpha release and just gets the essentials done. fork the code and add tests of more barcode coverage.
+
+== Functionality Note: 
+
+The zint library version 2.4.3 does not seem to encode high ECC qrcodes. I've commented out those test and put in a to-do to fix it later. 
 
 
-== Install
 
-As mentioned, you must install the zint project to be able to use this gem. Once that dependency is satisfied, then you can just do the usual gem install.
+== Installation
+
+As mentioned, <b> you must install zint</b> to be able to use this gem. Once that dependency is satisfied, then you can just do the usual gem install.
   
   gem install zint
   
@@ -41,7 +51,3 @@ Summary
   qrcode.path = "qrcode.ecc_h.txt"
   puts qrcode.buffer!
   
-  
-  
-  
-TODO: Add more documentation
