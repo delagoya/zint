@@ -42,20 +42,20 @@ class QRCodeTest < Test::Unit::TestCase
   end
 
   ## TO-DO: Figure out why this does not work. 
-  # context "QRCode High ECC" do 
-  #   setup do 
-  #     @bc = Zint::QRCode.new("http://rubygems.org/gems/zint", Zint::QRCode::ECC_H, :path => 'qrh.png')
-  #     @bc.print!
-  #   end
+  context "QRCode High ECC" do 
+    setup do 
+      @bc = Zint::QRCode.new("http://rubygems.org/gems/zint", Zint::QRCode::ECC_H, :path => 'qrh.png')
+      @bc.print!
+    end
     
-  #   should "create an object" do 
-  #     assert @bc
-  #   end    
+    should "create an object" do 
+      assert @bc
+    end    
 
-  #   should "create a PNG file that is the same as the test fixture" do 
-  #     test_fixture = File.join(File.dirname(__FILE__) , 'fixtures', "qrcode.ecc_h.png")
-  #     assert_equal(Digest::MD5.file(test_fixture) , Digest::MD5.file(@bc.path))    
-  #   end
+    should "create a PNG file that is the same as the test fixture" do 
+      test_fixture = File.join(File.dirname(__FILE__) , 'fixtures', "qrcode.ecc_h.png")
+      assert_equal(Digest::MD5.file(test_fixture) , Digest::MD5.file(@bc.path))    
+    end
 
-  # end
+  end
 end
